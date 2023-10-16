@@ -1,0 +1,31 @@
+.movieapp-container {
+  max-width: 1010px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin: auto;
+}
+
+#search_panel {
+  margin: auto;
+  width: 950px;
+  margin-bottom: 15px;
+}
+
+.movieapp-container .ant-pagination {
+  margin: auto;
+}
+
+.movies-list {
+  max-width: 1010px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+}

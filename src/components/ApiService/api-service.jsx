@@ -21,10 +21,16 @@ export default class ApiService {
   }
 
   async getAllMovies(movieName = '#') {
-    const result = await this.getResource(`${this._apiBase}${movieName}`).then(
-      (res) => res.results,
+    const result = await this.getResource(`${this._apiBase}${movieName}&page=1`).then(
+      (res) => {
+        // console.log(res);
+        return res.results
+      },
     );
-
     return result;
   }
+
+  // getPagesAmount
+
+  // getMoviesOnPage(page)
 }

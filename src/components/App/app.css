@@ -29,3 +29,30 @@
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 490px) {
+  .movieapp-container {
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    margin: auto;
+  }
+  #search_panel {
+    margin: auto;
+    width: 440px;
+    margin-bottom: 15px;
+  }
+  .movies-list {
+    max-width: 440px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .Content {
+    display: flex;
+    flex-direction: column;
+  }
+}

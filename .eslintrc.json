@@ -21,6 +21,7 @@
   ],
   "rules": {
     "comma-dangle": 0,
-    "no-underscore-dangle":"off"
+    "no-underscore-dangle":"off",
+    "jsx-filename-extension": "off"
   }
 }

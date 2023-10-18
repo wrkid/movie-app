@@ -38,3 +38,60 @@
 .movie-card .ant-rate {
   bottom: 5px;
 }
+
+@media (max-width: 490px) {
+  .movie-card {
+    width: 388px;
+    height: 245px;
+    padding: 10px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    display: block;
+  }
+  .movie-card img {
+    width: 90px;
+    height: 121px;
+    position: absolute;
+  }
+  .movie-params {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movie-params .movie-title {
+    align-self: flex-start;
+    margin: 0;
+    margin-left: 100px;
+  }
+
+  .movie-params .movie-date {
+    align-self: flex-start;
+    margin-left: 100px;
+  }
+
+  .movie-params .movie-tags {
+    align-self: flex-start;
+    display: flex;
+    margin-left: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .movie-tags .tag {
+    width: 46px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-color: linear-gradient(0deg, #D9D9D9, #D9D9D9),
+                      linear-gradient(0deg, #FAFAFA, #FAFAFA);
+    font-size: 12px;
+    font-weight: 400;
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 2px;
+    text-align: center;
+    margin: 5px;
+  }
+ 
+  .movie-params .ant-rate {
+    bottom: 5px;
+    align-self: flex-end;
+  }
+}

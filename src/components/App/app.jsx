@@ -1,12 +1,12 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Input, Tabs } from 'antd';
 import debounce from 'lodash.debounce';
 
-import TabsBar from '../TabsBar';
 import Content from '../Content';
+import RatedContent from '../RatedContent';
 
 import './app.css';
-// Сделать отображение на мобилке!!
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -39,9 +39,8 @@ export default class App extends React.Component {
   render() {
     const { inputValue, title } = this.state;
 
-    return (
+    const movieappSearchContainer = (
       <div className="movieapp-container">
-        <TabsBar />
         <form id="search_panel" onSubmit={(e) => e.preventDefault()}>
           <Input
             id="search_panel"
@@ -52,6 +51,32 @@ export default class App extends React.Component {
         </form>
         <Content title={title} />
       </div>
+    );
+
+    const movieappRatedContainer = (
+      <div className="rated-container">
+        <RatedContent />
+      </div>
+    );
+
+    return (
+      <Tabs
+        defaultActiveKey="1"
+        destroyInactiveTabPane
+        centered
+        items={[
+          {
+            label: 'Search',
+            key: '1',
+            children: movieappSearchContainer,
+          },
+          {
+            label: 'Rated',
+            key: '2',
+            children: movieappRatedContainer,
+          },
+        ]}
+      />
     );
   }
 }

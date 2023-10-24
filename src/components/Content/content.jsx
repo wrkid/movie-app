@@ -21,6 +21,14 @@ export default class Content extends React.Component {
     this.apiService = new ApiService();
   }
 
+  componentDidMount() {
+    this.setState({
+      moviesList: null,
+      loading: false,
+    });
+    this.getMoviesList();
+  }
+
   componentDidUpdate(prevProps) {
     const { title } = this.props;
     if (title !== prevProps.title) {
@@ -32,12 +40,18 @@ export default class Content extends React.Component {
     }
   }
 
-  getMoviesList = async (page = 1) => {
+  componentDidCatch() {
+    this.setState({
+      error: true,
+    });
+  }
+
+  getMoviesList = (page = 1) => {
     const { title } = this.props;
     if (!title) {
       return;
     }
-    await this.apiService
+    this.apiService
       .getAllMovies(title, page)
       .then((moviesList) => {
         if (moviesList.results.length !== 0) {
@@ -67,9 +81,20 @@ export default class Content extends React.Component {
 
   renderItems = () => {
     const { moviesList } = this.state;
+    let renderedList = [];
+    const ratedFilms = JSON.parse(localStorage.getItem('ratedFilms'));
+    moviesList.results.forEach((movie) => {
+      const idx = ratedFilms.results.findIndex((el) => el.id === movie.id);
+      if (idx !== -1) {
+        renderedList = [...renderedList, ratedFilms.results[idx]];
+      } else {
+        renderedList = [...renderedList, movie];
+      }
+    });
+
     return (
       <div className="movies-list">
-        {moviesList.results.map((movie) => (
+        {renderedList.map((movie) => (
           <MovieCard key={movie.id} data={movie} />
         ))}
       </div>

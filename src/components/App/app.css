@@ -7,9 +7,19 @@
   margin: auto;
 }
 
+.rated-container {
+  max-width: 1010px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin: auto;
+}
+
 #search_panel {
   margin: auto;
-  width: 950px;
+  width: 90%;
+  height: 30px;
   margin-bottom: 15px;
 }
 

@@ -83,14 +83,18 @@ export default class Content extends React.Component {
     const { moviesList } = this.state;
     let renderedList = [];
     const ratedFilms = JSON.parse(localStorage.getItem('ratedFilms'));
-    moviesList.results.forEach((movie) => {
-      const idx = ratedFilms.results.findIndex((el) => el.id === movie.id);
-      if (idx !== -1) {
-        renderedList = [...renderedList, ratedFilms.results[idx]];
-      } else {
-        renderedList = [...renderedList, movie];
-      }
-    });
+    if (ratedFilms) {
+      moviesList.results.forEach((movie) => {
+        const idx = ratedFilms.results.findIndex((el) => el.id === movie.id);
+        if (idx !== -1) {
+          renderedList = [...renderedList, ratedFilms.results[idx]];
+        } else {
+          renderedList = [...renderedList, movie];
+        }
+      });
+    } else {
+      renderedList = moviesList.results;
+    }
 
     return (
       <div className="movies-list">
